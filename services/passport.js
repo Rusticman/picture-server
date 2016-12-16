@@ -1,6 +1,6 @@
 const passport = require('passport');
 const config = require('../config');
-const FacebookUser = require('../models/facebook_user');
+const PictureData = require('../models/picture_data');
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 
@@ -21,7 +21,7 @@ const jwtLogin = new JwtStrategy(jwtOptions,function(payload,done){
   //if it does call 'done'with that user
   //otherwise, call done without a user object
 
-  FacebookUser.findById(payload.sub, function(err,user){//sub property given in authentication.js
+  PictureData.findById(payload.sub, function(err,user){//sub property given in authentication.js
     if(err){
       return done(err,false);
     }

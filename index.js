@@ -14,7 +14,7 @@ app.use(cors());
 app.use(bodyParser.json({type: "*/*" }));
 
 
-mongoose.connect(config.mongodb_url);
+mongoose.connect('mongodb://localhost:picture/picture');
 
 
 router(app);
